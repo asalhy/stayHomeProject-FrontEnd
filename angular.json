@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tunisian-volunteers": {
+    "stay-home-project-front": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tunisian-volunteers",
+            "outputPath": "dist/stayHomeProject-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tunisian-volunteers:build"
+            "browserTarget": "stayHomeProject-front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tunisian-volunteers:build:production"
+              "browserTarget": "stayHomeProject-front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tunisian-volunteers:build"
+            "browserTarget": "stayHomeProject-front:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "tunisian-volunteers:serve"
+            "devServerTarget": "stayHomeProject-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tunisian-volunteers:serve:production"
+              "devServerTarget": "stayHomeProject-front:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "tunisian-volunteers",
+  "defaultProject": "stayHomeProject-front",
   "cli": {
     "analytics": false
   }
