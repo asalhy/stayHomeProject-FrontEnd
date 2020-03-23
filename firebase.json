@@ -1,7 +1,13 @@
 {
   "hosting": {
     "public": "dist/stay-home-project-front",
-    "site": "stay-home-project-front",
+    "default": "stay-home-project-front-71487",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
