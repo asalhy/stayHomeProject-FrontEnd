@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/stayHomeProject-front",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
