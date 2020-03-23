@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display StayHomeProject in menu title', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('stayHomeProject');
+    expect(page.getTitleText()).toEqual('StayHomeProject');
   });
 
   afterEach(async () => {
