@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "dist/stay-home-project-front",
+    "site": "stay-home-project-front",
     "ignore": [
       "firebase.json",
       "**/.*",
