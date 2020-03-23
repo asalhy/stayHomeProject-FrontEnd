@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/stayHomeProject-front",
+            "outputPath": "dist/stay-home-project-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "stayHomeProject-front:build"
+            "browserTarget": "stay-home-project-front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "stayHomeProject-front:build:production"
+              "browserTarget": "stay-home-project-front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "stayHomeProject-front:build"
+            "browserTarget": "stay-home-project-front:build"
           }
         },
         "test": {
@@ -116,18 +116,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "stayHomeProject-front:serve"
+            "devServerTarget": "stay-home-project-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "stayHomeProject-front:serve:production"
+              "devServerTarget": "stay-home-project-front:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "stayHomeProject-front",
+  "defaultProject": "stay-home-project-front",
   "cli": {
     "analytics": false
   }

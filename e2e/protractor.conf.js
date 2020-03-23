@@ -8,15 +8,11 @@ const { SpecReporter } = require('jasmine-spec-reporter');
  * @type { import("protractor").Config }
  */
 exports.config = {
-  allScriptsTimeout: 11000,
+  allScriptsTimeout: 30000,
   specs: [
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    browserName: 'chrome',
-    chromeOptions: {
-      args: ['--headless', '--no-sandbox']
-    }
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
