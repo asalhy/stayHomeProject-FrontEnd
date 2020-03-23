@@ -1,0 +1,109 @@
+<div class="row ">
+  <div class="col-12 text-center">
+    <h1>Professionals</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 text-left">
+    <ng-container>
+      <button color="primary" mat-button
+              (click)="addProfessional()" >Add Professional
+      </button>
+    </ng-container>
+  </div>
+  <div class="col-6 text-right">
+    <ng-container>
+      <mat-form-field>
+        <label class="sr-only" for="search"></label>
+        <input matInput
+               id="search"
+               type="search"
+               name="search"
+               placeholder="Search..."
+               #input>
+        <span matPrefix><mat-icon>search</mat-icon>&nbsp;</span>
+      </mat-form-field>
+    </ng-container>
+  </div>
+</div>
+<table class="mat-elevation-z8" [hidden]="(dataSource.loading$| async)"
+       mat-table [dataSource]="dataSource"
+       matSort
+       matSortActive="{{dataSource.professionalColumns.service}}"
+       matSortDirection="asc"
+       matSortDisableClear>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.fullName}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.fullName}}</th>
+    <td mat-cell *matCellDef="let professional">{{professional.fullName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.email}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.email}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.phone}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.phone}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.phone }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.service}}">
+    <th mat-header-cell mat-sort-header *matHeaderCellDef>{{dataSource.professionalColumns.service}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.service }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.country}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.country}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.country}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="{{dataSource.professionalColumns.state}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.state}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.state }} </td>
+  </ng-container>
+  <ng-container matColumnDef="{{dataSource.professionalColumns.county}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.county}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.county }} </td>
+  </ng-container>
+  <ng-container matColumnDef="{{dataSource.professionalColumns.municipality}}">
+    <th mat-header-cell *matHeaderCellDef>{{dataSource.professionalColumns.municipality}}</th>
+    <td mat-cell *matCellDef="let professional"> {{professional.municipality }} </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let professional" class="center">
+      <button mat-button [matMenuTriggerFor]="menu"><span class="la la-menu la-ellipsis-h"></span></button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="edit(professional.id)"><span
+          class="la la-menu-item la-pencil icon"></span>update}
+        </button>
+        <button mat-menu-item (click)="delete(professional)"><span
+          class="la la-menu-item la-trash icon"></span>delete
+        </button>
+      </mat-menu>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="Object.keys(dataSource.professionalColumns)"></tr>
+  <tr mat-row *matRowDef="let row; columns: Object.keys(dataSource.professionalColumns);"></tr>
+
+</table>
+<mat-card [hidden]="!(dataSource.loading$ | async)"
+          style="display: flex; justify-content: center; align-items: center">
+  <div>Loading...</div>
+</mat-card>
+<ng-container *ngIf="!(dataSource.loading$ | async) && dataSource?.totalElements === 0">
+  <mat-card class="no-data" style="display: flex; justify-content: center; align-items: center">
+    <p>no data found</p>
+  </mat-card>
+</ng-container>
+<mat-paginator class="mat-elevation-z8"
+               [length]="dataSource?.totalElements"
+               [pageSizeOptions]="[10, 25, 50, 100]"
+               showFirstLastButtons>
+</mat-paginator>
+
+
+

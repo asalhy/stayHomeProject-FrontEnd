@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h1>Add Professional</h1>
+  </div>
+</div>
+
+<form fxLayout="column" [formGroup]="professionalForm">
+  <div class="input-row">
+    <mat-form-field fxFlex>
+      <input matInput placeholder="Full Name" formControlName="fullName">
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-form-field fxFlex>
+      <label>
+<textarea matInput placeholder="Address"
+          formControlName="address"
+          matTextareaAutosize matAutosizeMinRows="2"
+          matAutosizeMaxRows="5"></textarea>
+      </label>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+    <mat-form-field fxFlex>
+      <label>
+        <input formControlName="phone"
+               matInput placeholder="Phone number">
+      </label>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <label>
+        <input matInput
+               formControlName="email"
+               placeholder="Email">
+      </label>
+    </mat-form-field>
+  </div>
+  <div class="input-row">
+    <mat-form-field fxFlex>
+      <mat-select placeholder="Service" [(value)]="selected"
+                  formControlName="service">
+        <mat-option>-- Select Any --</mat-option>
+        <mat-option value="1">Medical care</mat-option>
+        <mat-option value="2">Food service</mat-option>
+        <mat-option value="3">Emergency</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+    <mat-form-field fxFlex>
+      <label>
+        <input matInput formControlName="country" placeholder="Country">
+      </label>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <label>
+        <input matInput formControlName="state" placeholder="State">
+      </label>
+    </mat-form-field>
+  </div>
+  <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+    <mat-form-field fxFlex>
+      <label>
+        <input matInput formControlName="county"
+               placeholder="County">
+      </label>
+    </mat-form-field>
+    <mat-form-field fxFlex>
+      <label>
+        <input matInput formControlName="municipality"
+               placeholder="Municipality">
+      </label>
+    </mat-form-field>
+  </div>
+  <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+    <button class="w-50" mat-button type="submit" color="primary" (click)="save()">Submit</button>
+    <button class="w-50" mat-button color="warn" (click)="close()">close</button>
+  </div>
+</form>
