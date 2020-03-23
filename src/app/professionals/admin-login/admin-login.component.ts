@@ -24,8 +24,12 @@ export class AdminLoginComponent {
   submit() {
     console.log(this.form);
     if (this.form.valid) {
-      this.submitEM.emit(this.form.value);
-      this.router.navigateByUrl('/admin');
+      console.log(this.form);
+      this.loginService.login(this.form.value.username, this.form.value.password).subscribe(res => {
+        this.router.navigateByUrl('/admin');
+      }, error => {
+        this.error = 'invalid login / password';
+      });
     }
   }
 

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {Professional} from '../shared/models/professional.model';
 import {DataSource} from '@angular/cdk/table';
 import {BehaviorSubject, fromEvent, Observable} from 'rxjs';
@@ -10,6 +10,8 @@ import {HttpResourceResponse} from '../shared/models/http-resource-response.mode
 import {debounceTime, distinctUntilChanged, map, tap} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {AddUpdateProfessionalComponent} from './add-update-professional/add-update-professional.component';
+import {LoginService} from '../shared/http/login.service';
+import {Router} from '@angular/router';
 
 export class ProfessionalsDataSource implements DataSource<Professional> {
 
@@ -73,7 +75,11 @@ export class ProfessionalsComponent implements AfterViewInit {
   Object = Object;
 
   constructor(private professionalService: ProfessionalsService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog, public loginService: LoginService,
+              private router: Router) {
+    if (this.router.url === '/admin' && !this.loginService.isAdmin) {
+      this.router.navigateByUrl('/');
+    }
     this.dataSource = new ProfessionalsDataSource(professionalService);
   }
 

@@ -5,7 +5,7 @@
 </div>
 <div class="row">
   <div class="col-6 text-left">
-    <ng-container>
+    <ng-container *ngIf="loginService.isAdmin">
       <button color="primary" mat-button
               (click)="addProfessional()" >Add Professional
       </button>

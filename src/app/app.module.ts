@@ -35,13 +35,6 @@ const routes: Routes = [
     component: ProfessionalsComponent,
   },
   {
-    path: 'admin/add',
-    component: AddUpdateProfessionalComponent
-  }, {
-    path: 'admin/update/:id',
-    component: AddUpdateProfessionalComponent
-  },
-  {
     path: '**',
     component: ErrorsComponent
   }];
